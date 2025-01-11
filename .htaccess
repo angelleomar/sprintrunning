@@ -1,10 +1,18 @@
 # Activa el módulo de reescritura
 RewriteEngine On
 
-# Redirige solicitudes sin .html al archivo correspondiente
+# Redirige solicitudes sin .html al archivo correspondiente en la raíz
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^/]+)/?$ $1.html [L]
 
-# Opcional: Redirige automáticamente URL con .html a la versión limpia (sin .html)
+# Redirige automáticamente URL con .html a la versión limpia (sin .html)
 RewriteCond %{THE_REQUEST} \s/([^\s]+)\.html
-RewriteRule ^ %1 [R=301,L]
+RewriteRule ^ /%1 [R=301,L]
+
+# Redirige solicitudes sin .html a la versión correspondiente dentro de la carpeta 'html'
+RewriteCond %{REQUEST_FILENAME} /html/([^/]+)\.html -f
+RewriteRule ^html/([^/]+)/?$ html/$1.html [L]
+
+# Redirige automáticamente las URLs dentro de la carpeta 'html' con .html a la versión limpia (sin .html)
+RewriteCond %{THE_REQUEST} \s/html/([^\s]+)\.html
+RewriteRule ^html/(.+)\.html$ /html/$1 [R=301,L]
