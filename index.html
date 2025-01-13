@@ -173,56 +173,56 @@
             <div class="col-lg-4">
                 <div class="single-class-item set-bg" data-setbg="img/carreras/carrera1.jpg">
                     <div class="si-text">
-                        <h4>8K Ruta del cafe.</h4>
-                        <span><i class="fa fa-user"></i>700+</span>
+                        <h4>RUTA DEL CAFÉ.</h4>
+                        <span><i class="fa fa-user"></i>2024</span>
                     </div>
                 </div>
                 <div class="single-class-item set-bg" data-setbg="img/carreras/carrera4.jpg">
                     <div class="si-text">
-                        <h4>Karate</h4>
-                        <span><i class="fa fa-user"></i> Kevin McCormick</span>
+                        <h4>SANTA ROCK RUN.</h4>
+                        <span><i class="fa fa-user"></i>2024</span>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="single-class-item set-bg" data-setbg="img/carreras/carrera2.jpg">
                     <div class="si-text">
-                        <h4>Carrera</h4>
-                        <span><i class="fa fa-user"></i> Randy Rivera</span>
+                        <h4>SAN AGUSTÍN.</h4>
+                        <span><i class="fa fa-user"></i>2023</span>
                     </div>
                 </div>
                 <div class="single-class-item set-bg" data-setbg="img/carreras/carrera5.jpg">
                     <div class="si-text">
-                        <h4>Danza</h4>
-                        <span><i class="fa fa-user"></i> Russell Lane</span>
+                        <h4>RUTA DEL CAFÉ.</h4>
+                        <span><i class="fa fa-user"></i>2024</span>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="single-class-item set-bg" data-setbg="img/carreras/carrera3.jpg">
                     <div class="si-text">
-                        <h4>Entrenamiento Personal</h4>
-                        <span><i class="fa fa-user"></i> Cole Robertson</span>
+                        <h4>SAN BENITO.</h4>
+                        <span><i class="fa fa-user"></i>2024</span>
                     </div>
                 </div>
                 <div class="single-class-item set-bg" data-setbg="img/carreras/carrera6.jpg">
                     <div class="si-text">
-                        <h4>Pérdida de Peso</h4>
-                        <span><i class="fa fa-user"></i> Ryan Scott</span>
+                        <h4>DOG RUN.</h4>
+                        <span><i class="fa fa-user"></i>2024</span>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="single-class-item set-bg" data-setbg="img/carreras/carrera7.jpg">
                     <div class="si-text">
-                        <h4>Entrenamiento Personal</h4>
-                        <span><i class="fa fa-user"></i> Cole Robertson</span>
+                        <h4>SAN AGUSTÍN.</h4>
+                        <span><i class="fa fa-user"></i>2023</span>
                     </div>
                 </div>
                 <div class="single-class-item set-bg" data-setbg="img/carreras/carrera8.jpg">
                     <div class="si-text">
-                        <h4>Pérdida de Peso</h4>
-                        <span><i class="fa fa-user"></i> Ryan Scott</span>
+                        <h4>SANTA ROCK RUN.</h4>
+                        <span><i class="fa fa-user"></i>2024</span>
                     </div>
                 </div>
             </div>
@@ -415,7 +415,6 @@
     </div>
 </section>
 <!-- Fin de la Sección de Membresía -->
-
 <!-- Sección de Registro -->
 <section class="register-section spad">
     <div class="container">
@@ -433,13 +432,14 @@
                                 <input type="text" id="name" required>
                             </div>
                             <div class="col-lg-6">
-                                <label for="email">Dirección de correo electrónico*</label>
-                                <input type="email" id="email" required>
-                            </div>
-                            <div class="col-lg-6">
                                 <label for="last-name">Apellidos*</label>
                                 <input type="text" id="last-name" required>
                             </div>
+                            <div class="col-lg-6">
+                                <label for="email">Dirección de correo electrónico*</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            
                             <div class="col-lg-6">
                                 <label for="mobile">Número de Teléfono* (Incluya lada)</label>
                                 <input type="text" id="mobile" required>
@@ -454,7 +454,16 @@
                             </div>
                             <div class="col-lg-6">
                                 <label for="birthdate">Fecha de Nacimiento*</label>
-                                <input type="date" id="birthdate" required>
+                                <input type="date" id="birthdate" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" required>
+                            </div>                            
+                            <div class="col-lg-6">
+                                <label for="shirt-size" class="form-label">Talla de Playera*</label>
+                                <select id="shirt-size" class="form-select" required>
+                                    <option value="">Selecciona</option>
+                                    <option value="CH">CH (Chica)</option>
+                                    <option value="M">M (Mediana)</option>
+                                    <option value="G">G (Grande)</option>
+                                </select>
                             </div>
                             <div class="col-lg-6">
                                 <label for="emergency-contact">Contacto de Emergencia (Nombre)*</label>
@@ -479,8 +488,7 @@
 </section>
 <!-- Fin de la Sección de Registro -->
 
-<!-- Agrega aquí tus enlaces JavaScript, si los tienes -->
-
+<!-- JavaScript -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const form = document.getElementById("registration-form");
@@ -496,6 +504,7 @@
             const emergencyPhone = document.getElementById("emergency-phone").value;
             const gender = document.getElementById("gender").value;
             const birthdate = document.getElementById("birthdate").value;
+            const shirtSize = document.getElementById("shirt-size").value;
 
             let ageGroup = "";
             const birthdateObj = new Date(birthdate);
@@ -511,14 +520,13 @@
                 ageGroup = "Veterano";
             }
 
-            const whatsappMessage = `Hola! Mi nombre es ${name} ${lastName}. Mi correo electrónico es ${email}, mi número de teléfono es ${mobile}, mi contacto de emergencia es ${emergencyContact} (${emergencyPhone}), mi clasificación es ${gender} y mi fecha de nacimiento es ${birthdate}. Pertenezco al grupo de edad ${ageGroup}.`;
+            const whatsappMessage = `Hola! Mi nombre es ${name} ${lastName}. Mi correo electrónico es ${email}, mi número de teléfono es ${mobile}, mi contacto de emergencia es ${emergencyContact} (${emergencyPhone}), mi clasificación es ${gender}, mi fecha de nacimiento es ${birthdate}, pertenezco al grupo de edad ${ageGroup}, y mi talla de playera es ${shirtSize}.`;
             const whatsappUrl = `https://wa.me/528112892160?text=${encodeURIComponent(whatsappMessage)}`;
 
             window.location.href = whatsappUrl;
         });
     });
 </script>
-
 
 
 
