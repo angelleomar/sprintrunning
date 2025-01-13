@@ -1,0 +1,50 @@
+/* Fuente personalizada y sombreado para los títulos */
+.mission-title, .vision-title {
+    font-family: 'Poppins', sans-serif; /* Cambia a tu fuente preferida */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff5733; /* Color brillante para destacar */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Diferenciación del texto */
+.mission-text, .vision-text {
+    font-family: 'Roboto', sans-serif; /* Fuente secundaria */
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444; /* Contraste adecuado para visibilidad */
+    margin-bottom: 1.5rem;
+}
+
+/* Animación para que aparezcan suavemente */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.about-pic {
+    position: relative;
+}
+
+.mission-container {
+    margin-top: 20px; /* Separar la misión del video */
+}
+
+.mission-title {
+    margin-top: 20px; /* Espaciado superior de la misión */
+}
+
+/* Opcional: Añadir más separación */
+.mission-text {
+    margin-top: 10px;
+    line-height: 1.6;
+}
